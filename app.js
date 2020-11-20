@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "development") {
         //log error t database
     } else {
         console.error(err);
