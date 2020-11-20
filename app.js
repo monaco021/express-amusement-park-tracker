@@ -26,13 +26,23 @@ app.use((err, req, res, next) => {
 app.use((err, req, res, next) => {
     if (err.status === 404) {
         res.status(404);
-        res.render("Page Not Found", { title: "Page Not Found" });
+        res.render("page-not-found", { title: "Page Not Found" });
     } else {
         next(err);
     }
 })
 // const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
+app.use((err, req, res, next) => {
+    if (err.status === !404 || !err.status) {
+        res.status(500);
+        res.render('error', { 
+            title: 'Server Error', 
+            message: null,
+            stack: null
+        })
+    }
+})
 
 
 module.exports = app;
