@@ -31,13 +31,13 @@ app.use((err, req, res, next) => {
         next(err);
     }
 })
-// const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
+
 
 app.use((err, req, res, next) => {
     if (err.status === !404 || !err.status) {
         res.status(500);
-        res.render('error', { 
-            title: 'Server Error', 
+        res.render('error', {
+            title: 'Server Error',
             message: null,
             stack: null
         })
